@@ -4,7 +4,7 @@ LABEL maintainer="https://github.com/hermsi1337"
 
 ENV ROOT_PASSWORD root
 
-RUN apk update  && apk upgrade && apk add openssh curl tcpdump nmap netcat-openbsd socat iputils \
+RUN apk update  && apk upgrade && apk add curl bind-tools busybox-extras dig iputils netcat-openbsd nmap openssh tcpdump socat \
                     postgresql-client bash mongodb \
                 && sed -i s/#PermitRootLogin.*/PermitRootLogin\ without-password/ /etc/ssh/sshd_config \
                 && sed -i s/#PermitTunnel.*/PermitTunnel\ yes/ /etc/ssh/sshd_config \
